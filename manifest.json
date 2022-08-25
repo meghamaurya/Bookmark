@@ -9,7 +9,7 @@
   "action": {
     "default_title": "My Bookmarks",
     "default_icon": "bookmark.png",
-    "default_popup": "popup.html"
+    "default_popup": "index.html"
   },
   "icons": {
     "128": "bookmark.png"
