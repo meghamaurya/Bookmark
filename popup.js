@@ -9,11 +9,11 @@ $('#search').change(function () {
 // Traverse the bookmark tree, and print the folder and nodes.
 function searchBookmarks(query) {
   chrome.bookmarks.getTree(function (bookmarkTreeNodes) {
-    $('#bookmarkList').append(dumpTreeNodes(bookmarkTreeNodes, query));
+    $('#bookmarkList').append(bmTreeNodes(bookmarkTreeNodes, query));
   });
 }
 
-function dumpTreeNodes(bookmarkNodes, query) {
+function bmTreeNodes(bookmarkNodes, query) {
   var list = $('<ul>');
   for (var i = 0; i < bookmarkNodes.length; i++) {
     list.append(dumpNode(bookmarkNodes[i], query));
@@ -152,7 +152,7 @@ function dumpNode(bookmarkNode, query) {
 
   var li = $(bookmarkNode.title ? '<li>' : '<div>').append(span);
   if (bookmarkNode.children && bookmarkNode.children.length > 0) {
-    li.append(dumpTreeNodes(bookmarkNode.children, query));
+    li.append(bmTreeNodes(bookmarkNode.children, query));
   }
 
   return li;
